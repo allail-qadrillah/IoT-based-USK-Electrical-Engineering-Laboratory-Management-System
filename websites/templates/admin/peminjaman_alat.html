@@ -1,0 +1,133 @@
+{% extends 'admin/templates/sidebar.html' %}
+
+{% block title %} Admin | Peminjaman Alat {% endblock %}
+
+{% block body %}
+<div class="content-wrapper ">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Peminjaman Alat</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="">Inventory</a></li>
+            <li class="breadcrumb-item active">Peminjaman Alat</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+
+  <div class="container-fluid table-responsive ">
+    <div class="row bg-light mt-12 rounded-6">
+
+      <div class="col md-12 ">
+        <button type="button" class="btn btn-success float-right mb-2" data-toggle="modal" data-target="#fotoAlat">
+          Tambah Peminjam 📥
+        </button>
+
+        <table class="table table-hover ">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>NPM</th>
+              <th>Whatsapp</th>
+              <th>Nama Alat</th>
+              <th>Jumlah</th>
+              <th>Peminjaman</th>
+              <th>Pengembalian</th>
+              <th>Message</th>
+              <th>Foto</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in dataPeminjam %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <th>{{ item['nama'] }}</th>
+              <th>{{ item['npm'] }} </th>
+              <th>{{ item['wa'] }}</th>
+              <th>{{ item['nama alat'] }}</th>
+              <th>{{ item['jumlah'] }}</th>
+              <th>{{ item['waktu peminjaman'] }}</th>
+              <th>{{ item['waktu pengembalian'] }}</th>
+              <th>{{ item['message'] }}</th>
+              <td>
+                <a href="{{ item['img'] }}" target="_blank" class="btn btn-primary">Foto</a>
+              </td>
+              <td>
+                <a href="/peminjaman/delete/{{ item['id'] }}" class="btn btn-danger"
+                  onclick="return confirm('yakin dah dibalein?')">Pengembalian</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="fotoAlat" tabindex="-1" aria-labelledby="fotoAlatLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="fotoAlatLabel">Tambah Inventory</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{{url_for('admin_views.peminjaman')}}" method="POST" enctype="multipart/form-data">
+              <div class="form-group">
+                <label>Nama</label>
+                <input type="text" class="form-control" name="nama" placeholder="namanya siapa?">
+              </div>
+              <div class="form-group">
+                <label>NPM</label>
+                <input type="number" class="form-control" name="npm" placeholder="npmnya berapa?">
+              </div>
+              <div class="form-group">
+                <label>Whatsapp</label>
+                <input type="text" class="form-control" name="wa" placeholder="berapa nomer wanya?">
+              </div>
+              <div class="form-group">
+                <label>Nama Alat </label>
+                <input type="text" class="form-control" name="nama-alat" placeholder="nama alatnya apa?">
+              </div>
+              <div class="form-group">
+                <label>Jumlah</label>
+                <input type="number" class="form-control" name="jumlah" placeholder="berapa jumlahnya?">
+              </div>
+              <div class="form-group">
+                <label>Pengembalian</label>
+                <input class="form-control" type="datetime-local" name="time">
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea class="form-control" name="message" id="message" cols="3" rows="3"></textarea>
+              </div>
+
+              <div class="form-group">
+                <label for="formFile" class="form-label">Upload Foto Alat</label>
+                <div class="value">
+                  <input class="" type="file" name="image" id="image">
+                  <div class="">Upload foto alat yang bakal dipinjam</div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Save changes</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}

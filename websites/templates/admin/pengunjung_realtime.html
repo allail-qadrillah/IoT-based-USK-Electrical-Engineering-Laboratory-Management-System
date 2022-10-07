@@ -1,0 +1,75 @@
+{% extends 'admin/templates/sidebar.html' %}
+
+{% block title %} Admin | Pengunjung Realtime{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Pengunjung Realtime</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">Pengunjung Realtime</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+
+  <!-- small box pengunjung lab realtime-->
+  <div class="col-lg-12 col-6 animate__animated animate__bounceInDown">
+    <div class="small-box bg-danger">
+      <div class="inner">
+        <h1 id="pengunjung-lab">0</h1>
+        <p>Pengujung Lab</p>
+      </div>
+      <div class="icon">
+        <i class="fa fa-users"></i>
+      </div>
+    </div>
+  </div>
+  <!-- end boc pengunjung lab Realtime -->
+
+  <div class="container-fluid table-responsive animate__animated animate__fadeInDown">
+    <div class="row bg-light mt-12 rounded-6">
+      <div class="col md-12 ">
+        <form action="{{ url_for('admin_views.pengunjung_realtime') }}" method="post">
+          <input type="submit" class="btn btn-success float-right mb-2" name="foo" value=" Ambil Foto 📸"/>
+        </form>
+
+        <table class="table table-hover ">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Jam</th>
+              <th>Tanggal</th>
+              <th>Foto</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in data_realtime %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <th>{{ item['jam'] }}</th>
+              <th>{{ item['tanggal'] }} </th>
+              <td>
+                <a href="{{ item['img'] }}" target="_blank" class="btn btn-primary">Foto</a>
+                <a href="{{ url_for('admin_views.delete_pengunjung_realtime', id=item['id']) }}"  
+                class="btn btn-danger" onclick="return confirm('yakin mau dihapus❓')">Delete</a>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="module" src="{{url_for('static', filename = 'dist/js/admin/pengunjung_realtime.js')}}"></script>
+{% endblock %}

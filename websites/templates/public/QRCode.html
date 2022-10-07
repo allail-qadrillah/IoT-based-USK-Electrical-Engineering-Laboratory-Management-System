@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>QR-Code</title>
+</head>
+
+<body>
+
+  <h1 class="centered">QR-Code Absensi 👇</h1>
+  <div class="center" id="qr-code"></div>
+
+</body>
+<style>
+  .center {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px solid #FFFF00;
+    padding: 10px;
+  }
+
+  .centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    min-height: 45vh;
+  }
+
+</style>
+
+<script src="{{url_for('static', filename = 'dist/js/qrcode.min.js')}}"></script>
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+  const firebaseApp = initializeApp({
+    apiKey: "AIzaSyCBDhVoR-6MrrXpVA1es7JZnBc-o1CXSAo",
+    authDomain: "eed-website-34a52.firebaseapp.com",
+    databaseURL: "https://eed-website-34a52-default-rtdb.firebaseio.com",
+    projectId: "eed-website-34a52",
+    storageBucket: "eed-website-34a52.appspot.com",
+    messagingSenderId: "698112175231",
+    appId: "1:698112175231:web:13701c78b3ba091f37a34a",
+    measurementId: "G-BVYHW2XCL6"
+  });
+
+  import { getDatabase, ref, set, child, update, remove, get, onValue } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+  const db = getDatabase()
+
+  // read dataa
+  var qrCode = new QRCode(document.getElementById('qr-code'))
+  // update data
+  onValue(ref(db, '/'), (snapshot) => {
+    qrCode.clear();
+    const data = snapshot.val();
+
+    qrCode.makeCode(data['temp_url']);
+
+  });
+
+</script>
+
+</html>

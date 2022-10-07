@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags-->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Colorlib Templates">
+  <meta name="author" content="Colorlib">
+  <meta name="keywords" content="Colorlib Templates">
+
+  <!-- Title Page-->
+  <title>Pinjam Alat</title>
+
+  <!-- Font special for pages-->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{url_for('static', filename = 'dist/css/public/main.css')}}" media="all">
+
+</head>
+
+<body>
+  <div class="page-wrapper bg-dark p-t-100 p-b-50">
+    <div class="wrapper wrapper--w900">
+      <div class="card card-6">
+        <div class="card-heading">
+          <h2 class="title">Peminjaman Alat</h2>
+        </div>
+        <div class="card-body">
+          <form action="{{ url_for('public_views.pinjam_alat') }}" method="POST" enctype="multipart/form-data">
+            <div class="form-row">
+              <div class="name">Nama</div>
+              <div class="value">
+                <input class="input--style-6" type="text" name="nama" placeholder="namanya siapa?">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">NPM</div>
+              <div class="value">
+                <input class="input--style-6" type="text" name="npm" placeholder="berapa npm?">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Whatsapp</div>
+              <div class="value">
+                <input class="input--style-6" type="text" name="wa" placeholder="berapa nomor wa?">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Nama Alat</div>
+              <div class="value">
+                <input class="input--style-6" type="text" name="nama-alat" placeholder="nama alatnya apa?">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Jumlah</div>
+              <div class="value">
+                <input class="input--style-6" type="number" name="jumlah" placeholder="berapa biji dipinjam?">
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Pengembalian</div>
+              <div class="value">
+                <input class="input--style-6" type="datetime-local" name="time">
+                <div class="label--desc">kapan baleinnya</div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Message*</div>
+              <div class="value">
+                <div class="input-group">
+                  <textarea class="textarea--style-6" name="message" placeholder="mau dipake buat apa?"></textarea>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="name">Upload Foto Alat</div>
+              <div class="value">
+                <div class="input-group ">
+                  <input type="file" name="image" id="image">
+                </div>
+                <div class="label--desc">Upload foto alat yang bakal dipinjam</div>
+              </div>
+            </div>
+            <div class="card-footer">
+              <button class="btn btn--radius-2 btn--blue-2" type="submit">Pinjam</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main JS-->
+  <script src="{{url_for('static', filename = 'dist/js/public/pinjam_alat.js')}}"></script>
+
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
+<!-- end document-->

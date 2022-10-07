@@ -1,0 +1,60 @@
+{% extends 'admin/templates/sidebar.html' %}
+
+{% block title %} Admin | Absensi Pengunjung{% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Absensi Pengunjung</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item active">Absensi Pengunjung</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+
+  <!-- Table -->
+  <div class="container table-responsive animate__animated animate__fadeInDown">
+    <div class="row bg-light mt-12 rounded-6">
+      <div class="col md-12 ">
+
+        <table class="table table-hover ">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>NPM</th>
+              <th>Bidang</th>
+              <th>Kegiatan</th>
+              <th>Tanggal</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in data_absensi %}
+              <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ item['nama'] }}</td>
+                <td>{{ item['npm'] }}</td>
+                <td>{{ item['bidang'] }}</td>
+                <td>{{ item['kegiatan'] }}</td>
+                <td>{{ item['tanggal'] }}</td>
+              </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+    <!-- Modal -->
+
+  </div>
+
+</div>
+{% endblock %}

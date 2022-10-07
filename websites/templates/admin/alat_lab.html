@@ -1,0 +1,91 @@
+{% extends 'admin/templates/sidebar.html' %}
+
+{% block title %} Admin | Alat Lab {% endblock %}
+
+{% block body %}
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0">Inventory Lab</h1>
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="">Inventory</a></li>
+            <li class="breadcrumb-item active">Inventory Lab</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+
+  <!-- Table -->
+  <div class="container table-responsive">
+    <div class="row bg-light mt-12 rounded-6">
+
+      <div class="col md-12 ">
+        <button type="button" class="btn btn-success float-right mb-2" data-toggle="modal" data-target="#AddInventory">
+          Tambah Inventory 📥
+        </button>
+
+        <table class="table table-hover ">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Jumlah</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for item in data_alat_lab %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ item['nama'] }}</td>
+              <td>{{ item['jumlah'] }}</td>
+              <td>
+                <a href="/alat-lab/delete/{{ item['id'] }}" class="btn btn-danger"
+                  onclick="return confirm('Are You Sure To Delete?')">Delete</a>
+              </td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="AddInventory" tabindex="-1" aria-labelledby="AddInventoryLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="AddInventoryLabel">Tambah Inventory</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form action="{{ url_for('admin_views.alat_lab') }}" , method="POST">
+              <div class="form-group">
+                <label>Nama Alat </label>
+                <input type="text" class="form-control" name="nama_alat" placeholder="nama alatnya apa?">
+              </div>
+              <div class="form-group">
+                <label>Jumlah</label>
+                <input type="number" class="form-control" name="jumlah" placeholder="berapa jumlahnya?">
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Tambah Inventory</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+{% endblock %}
+<!-- Main content -->
