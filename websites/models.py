@@ -114,7 +114,8 @@ def get_realtime_db(key, path):
     return ref.get()[key]
 
 
-# print(get_temp_url())
+
+# print(get_realtime_db('pengunjung_lab', '/'))
 # create_temp_url()
 # print(upload_img('app/websites/static/img/uploads/logo.png', 'logo.png'))
 # user = Admin()

@@ -3,5 +3,53 @@
 {% block title %} EED {% endblock %}
 
 {% block body %}
-  
+<div class="container " style="padding-top: 10px;">
+
+  <div class="content">
+    <div class="col-lg-12 col-12 animate__animated animate__bounceInDown">
+      <div class="small-box bg-danger">
+        <div class="inner">
+          <h1 id="pengunjung-lab"> - </h1>
+          <h3>Pengujung Lab</>
+        </div>
+        <div class="icon">
+          <i class="fa fa-users"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Table -->
+  <div class="container table-responsive">
+    <div class="row bg-light mt-12 rounded-6">
+      <div class="col md-12 ">
+        <h3 class=" font-weight-bold float-left mb-2">Inventory<h3/>
+        <a href="{{ url_for('public_views.pinjam_alat') }}" class="btn btn-success float-right mb-2" target="_blank">Pinjam Alat 📥</a>
+
+        <table class="table table-hover ">
+          <thead class="thead-dark">
+            <tr>
+              <th>ID</th>
+              <th>Nama</th>
+              <th>Jumlah</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for item in data_alat_lab %}
+            <tr>
+              <td>{{ loop.index }}</td>
+              <td>{{ item['nama'] }}</td>
+              <td>{{ item['jumlah'] }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+
+      </div>
+    </div>
+</div>
+
+<script type="module" src="{{url_for('static', filename = 'dist/js/public/pengunjung_realtime.js')}}"></script>
+
+
 {% endblock %}

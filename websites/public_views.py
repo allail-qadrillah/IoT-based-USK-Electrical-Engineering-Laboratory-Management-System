@@ -9,11 +9,9 @@ from werkzeug.utils import secure_filename
 public_views = Blueprint('public_views', __name__)
 url_access = []
 
-@public_views.route('/example')
+@public_views.route('/')
 def index():
-    # create path url for QRCODE
-    create_realtime_db({'baseUrlAbsensi': f'{request.host_url}absensi/'}, '/')
-    return render_template('public/index.html')
+    return render_template('public/index.html', data_alat_lab=Admin().get_alat_lab())
 
 # QRCODE JALAN DI SERVER BERBEDA
 @public_views.route(f'/QRCode', methods=['GET', 'POST'])
