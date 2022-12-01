@@ -17,10 +17,10 @@ onValue(ref(db, '/'), (snapshot) => {
   const data = snapshot.val();
 
   const status = data['raspberry_server'];
-  var lampuOtomatis = data['lampu_otomatis'] ? document.getElementById('lampu-otomatis').innerHTML = 'Matikan Lampu Otomatis' : document.getElementById('lampu-otomatis').innerHTML = 'Hidupkan Lampu Otomatis'
+  var lampuOtomatis = data['lampu_otomatis'] ? document.getElementById('lampu-otomatis').innerHTML = 'Matikan Lampu Otomatis ⚙️' : document.getElementById('lampu-otomatis').innerHTML = 'Hidupkan Lampu Otomatis ⚙️'
   var lampuOtomatis = data['lampu_otomatis'] ? document.getElementById('lampu-otomatis').className = 'btn btn-danger mb-4' : document.getElementById('lampu-otomatis').className = 'btn btn-success mb-4'
-  var lampu = data['lampu'] ? document.getElementById('lampu').innerHTML = 'Hidup' : document.getElementById('lampu').innerHTML = 'Mati'
-  var lampu = data['lampu'] ? document.getElementById('lampu').className = 'btn btn-success' : document.getElementById('lampu').className = 'btn btn-danger'
+  var lampu = data['lampu'] ? document.getElementById('lampu').innerHTML = 'Mati 💡' : document.getElementById('lampu').innerHTML = 'Hidup 💡'
+  var lampu = data['lampu'] ? document.getElementById('lampu').className = 'btn btn-danger' : document.getElementById('lampu').className = 'btn btn-success'
   
 
   if (status == true) {
