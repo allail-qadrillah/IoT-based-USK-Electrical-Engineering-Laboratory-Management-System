@@ -83,8 +83,8 @@ def pengunjung_realtime():
         return redirect(url_for('admin_views.pengunjung_realtime'))
     data = Admin().get_realtime_data()
 
-    from time import sleep
-    sleep(5)
+    # from time import sleep
+    # sleep(5)
     return render_template('admin/pengunjung_realtime.html', data_realtime = data)
 
 

@@ -21,14 +21,28 @@
   </div>
 
   <!-- small box pengunjung lab realtime-->
-  <div class="col-lg-12 col-6 animate__animated animate__bounceInDown">
-    <div class="small-box bg-danger">
-      <div class="inner">
-        <h1 id="pengunjung-lab">0</h1>
-        <p>Pengujung Lab</p>
+  <div class="row d-flex justify-content-around">
+    <div class="col-lg-5 col-12 animate__animated animate__bounceInDown">
+      <div class="small-box bg-danger">
+        <div class="inner">
+          <h1 id="pengunjung-lab">0</h1>
+          <p>Pengujung Lab</p>
+        </div>
+        <div class="icon">
+          <i class="fa fa-users"></i>
+        </div>
       </div>
-      <div class="icon">
-        <i class="fa fa-users"></i>
+    </div>
+    <div class="col-lg-5 col-12 animate__animated animate__bounceInDown">
+      <div class="small-box bg-info">
+        <div class="inner">
+          <button type="button" class="btn btn-success mb-4" id="lampu-otomatis" onclick="changeStatus('lampuOtomatis')">Hidupkan Otomatis</button>
+          <br>
+          <button type="button" class="btn btn-success" id="lampu" onclick="changeStatus('lampu')">ON</button>
+        </div>
+        <div class="icon">
+          <i class="fa fa-users"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -38,7 +52,7 @@
     <div class="row bg-light mt-12 rounded-6">
       <div class="col md-12 ">
         <form action="{{ url_for('admin_views.pengunjung_realtime') }}" method="post">
-          <input type="submit" class="btn btn-success float-right mb-2" name="foo" value=" Ambil Foto 📸"/>
+          <input type="submit" class="btn btn-success float-right mb-2" name="foo" value=" Ambil Foto 📸" />
         </form>
 
         <table class="table table-hover ">
@@ -58,8 +72,8 @@
               <th>{{ item['tanggal'] }} </th>
               <td>
                 <a href="{{ item['img'] }}" target="_blank" class="btn btn-primary">Foto</a>
-                <a href="{{ url_for('admin_views.delete_pengunjung_realtime', id=item['id']) }}"  
-                class="btn btn-danger" onclick="return confirm('yakin mau dihapus❓')">Delete</a>
+                <a href="{{ url_for('admin_views.delete_pengunjung_realtime', id=item['id']) }}" class="btn btn-danger"
+                  onclick="return confirm('yakin mau dihapus❓')">Delete</a>
               </td>
             </tr>
             {% endfor %}
