@@ -50,6 +50,12 @@
 </div>
 
 <script type="module" src="{{url_for('static', filename = 'dist/js/public/pengunjung_realtime.js')}}"></script>
-
+<script>
+fetch('https://api.ipify.org')
+  .then(response => response.text())
+  .then(ipAddress => {
+    console.log(`Your IP address is: ${ipAddress}`);
+  });  
+</script>
 
 {% endblock %}
