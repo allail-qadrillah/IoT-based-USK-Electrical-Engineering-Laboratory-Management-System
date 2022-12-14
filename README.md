@@ -1,3 +1,8 @@
+## Overview
+- [1. Latar Belakang](https://github.com/allail-qadrillah/Electrical-Engineering-Design#latar-belakang)
+- [2. Rumusan Masalah](https://github.com/allail-qadrillah/Electrical-Engineering-Design#rumusan-masalah)
+- [3. Solution](https://github.com/allail-qadrillah/Electrical-Engineering-Design#solution)
+
 ## Latar Belakang
 Laboratorium Jurusan Teknik Elektro USK menggunakan kertas dalam peminjaman alat dan pendataan absensi, hal ini sangat tidak efisien karna pernggunaan kertas yang sia-sia. Sistem manajemen laboratorium secara digital diperlukan untuk membuat manajemen lebih baik daripada metode lama yang masih dilakukan secara manual menggunakan kertas, metode lama ini membutuhkan banyak biaya dan waktu. Keadaan laboratorium juga perlu dipantau setiap saat secara langsung oleh Kepala Laboratorium, lalu kegiatan dan pendataan laboratorium juga perlu dibuat lebih simpel dan lebih mudah sehingga menghemat waktu dan lebih efisien. Penerapan IoT dalam proyek ini tentu dapat membantu terwujudnya sistem manajemen yang hemat biaya, mudah, dan real-time. 
 
