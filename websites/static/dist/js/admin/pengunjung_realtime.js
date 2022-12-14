@@ -1,13 +1,13 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 const firebaseApp = initializeApp({
-  apiKey: "AIzaSyCBDhVoR-6MrrXpVA1es7JZnBc-o1CXSAo",
-  authDomain: "eed-website-34a52.firebaseapp.com",
-  databaseURL: "https://eed-website-34a52-default-rtdb.firebaseio.com",
-  projectId: "eed-website-34a52",
-  storageBucket: "eed-website-34a52.appspot.com",
-  messagingSenderId: "698112175231",
-  appId: "1:698112175231:web:13701c78b3ba091f37a34a",
-  measurementId: "G-BVYHW2XCL6"
+  apiKey: "",
+  authDomain: "",
+  databaseURL: "",
+  projectId: "",
+  storageBucket: "",
+  messagingSenderId: "",
+  appId: "",
+  measurementId: ""
 });
 
 import { getDatabase, ref, onValue, get, update } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";

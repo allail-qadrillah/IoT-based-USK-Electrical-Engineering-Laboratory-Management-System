@@ -7,7 +7,6 @@ from werkzeug.utils import secure_filename
 
 admin_views = Blueprint('admin_views', __name__)
 
-
 @admin_views.route('/dashboard', methods=['POST', 'GET'])
 def dashboard():
     return render_template('admin/dashboard.html', data=Admin().get_dashboard_data())
@@ -83,16 +82,12 @@ def pengunjung_realtime():
         return redirect(url_for('admin_views.pengunjung_realtime'))
     data = Admin().get_realtime_data()
 
-    # from time import sleep
-    # sleep(5)
     return render_template('admin/pengunjung_realtime.html', data_realtime = data)
-
 
 @admin_views.route('/pengunjung-realtime/delete/<id>', methods=['POST', 'GET'])
 def delete_pengunjung_realtime(id):
     Admin().delete_pengunjung_realtime(id)
     return redirect(url_for('admin_views.pengunjung_realtime'))
-
 
 @admin_views.route('/api')
 def api():

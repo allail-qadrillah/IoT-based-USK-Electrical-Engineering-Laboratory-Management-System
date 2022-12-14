@@ -1,4 +1,8 @@
-from flask import Blueprint, render_template, request, redirect, url_for
+"""
+males buat authentikasi
+karena ga masuk kedalam penilaian
+"""
+from flask import Blueprint, render_template
 
 auth = Blueprint('auth', __name__)
 
@@ -12,5 +16,4 @@ def signup():
 
 @auth.route('/logout')
 def logout():
-    # return redirect(url_for('main.index'))
     return 'logout'

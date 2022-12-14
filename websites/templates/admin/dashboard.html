@@ -3,29 +3,25 @@
 {% block title %} Admin | Dashboard {% endblock %}
 
 {% block body %}
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
-  <!-- Content Header (Page header) -->
   <div class="content-header">
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
           <h1 class="m-0">Dashboard</h1>
-        </div><!-- /.col -->
+        </div>
         <div class="col-sm-6">
           <ol class="breadcrumb float-sm-right">
             <li class="breadcrumb-item active">Dashboard</li>
           </ol>
-        </div><!-- /.col -->
-      </div><!-- /.row -->
-    </div><!-- /.container-fluid -->
+        </div>
+      </div>
+    </div>
   </div>
   <section class="content animate__animated animate__fadeInDown">
     <div class="container-fluid">
-      <!-- Small boxes (Stat box) -->
       <div class="row">
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-light">
             <div class="inner">
               <h3 id="pengunjung-lab">0</h3>
@@ -39,7 +35,6 @@
           </div>
         </div>
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-warning">
             <div class="inner">
               <h3>{{ data['peminjam alat'] }}</h3>
@@ -53,7 +48,6 @@
           </div>
         </div>
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-primary">
             <div class="inner">
               <h3>{{ data['absensi'] }}</h3>
@@ -67,7 +61,6 @@
           </div>
         </div>
         <div class="col-lg-3 col-6">
-          <!-- small box -->
           <div class="small-box bg-info">
             <div class="inner">
               <h3>{{ data['inventory'] }}</h3>
@@ -81,7 +74,6 @@
           </div>
         </div>
         <div class="col-lg-12 col-6">
-          <!-- small box -->
           <div class="small-box bg-light" id="class-raspberry-server">
             <div class="inner">
               <h3 id="raspberry-status">mendapatkan status...</h3>
@@ -94,11 +86,9 @@
         </div>
         
       </div>
-      <!-- /.row (main row) -->
-    </div><!-- /.container-fluid -->
+    </div>
   </section>
-  <!-- /.content -->
-</div> <!-- ./col -->
+</div> 
 <script type="module" src="{{url_for('static', filename = 'dist/js/admin/dashboard.js')}}"></script>
 <script src="https://cdn.lordicon.com/pzdvqjsp.js"></script>
 {% endblock %}
