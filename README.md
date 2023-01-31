@@ -20,8 +20,8 @@ Pengguna yang dimaksud dalam proyek ini adalah Admin yang melakukan manajemen la
 4. Website Admin dapat mengontrol semua fitur yang hanya dapat diakses koordinator lab
 5. Website Public hanya dapat mengakses jumlah pengunjung lab dan inventory lab
 
-##Result
-=> [Admin Dashboard](https://eed.2004105010047.repl.co/dashboard)
-=> [Public Dashboard](https://eed.2004105010047.repl.co/)
-=> [Scan QR Code](https://eed.2004105010047.repl.co/QRCode)
-=  [Video](https://vt.tiktok.com/ZS8UuSw8B/)
+## Result
+- [Admin Dashboard](https://eed.2004105010047.repl.co/dashboard)
+- [Public Dashboard](https://eed.2004105010047.repl.co/)
+- [Scan QR Code](https://eed.2004105010047.repl.co/QRCode)
+- [Video](https://vt.tiktok.com/ZS8UuSw8B/)
